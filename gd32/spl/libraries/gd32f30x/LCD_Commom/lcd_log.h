@@ -13,7 +13,7 @@
 #ifndef  __LCD_LOG_H
 #define  __LCD_LOG_H
 
-#include "gd32f403Z_lcd_eval.h"
+#include "gd32f303c_lcd_eval.h"
 #include <string.h>
 
 /* initializes the LCD of GD EVAL board */

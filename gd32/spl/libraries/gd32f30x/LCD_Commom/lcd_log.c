@@ -10,8 +10,8 @@
 */
 
 #include "lcd_log.h"
-#include "usb_conf.h"
-#include "usb_delay.h"
+//#include "usb_conf.h"
+//#include "usb_delay.h"
 
 extern uint16_t LINE;
 
@@ -155,29 +155,29 @@ void lcd_log_print (uint8_t *pstr,
         .bk_color = back_color
     };
 
-#if defined(USE_HOST_MODE) && defined(USE_DEVICE_MODE)
-    if (LINE <= 60) {
-        LINE = 190;
-        lcd_rectangle_fill(60, 0, 210, 320, BLACK);
-    }
-#else
-    #if defined USBH_CDC
-        if (LINE <= 60) {
-            LINE = 190;
-            lcd_rectangle_fill(60, 0, 210, 320, BLACK);
-        }
-    #elif defined USBD_CDC
-        if (LINE <= 40) {
-            LINE = 190;
-            lcd_rectangle_fill(40, 0, 210, 320, BLACK);
-        }
-    #else
+//#if defined(USE_HOST_MODE) && defined(USE_DEVICE_MODE)
+//    if (LINE <= 60) {
+//        LINE = 190;
+//        lcd_rectangle_fill(60, 0, 210, 320, BLACK);
+//    }
+//#else
+//    #if defined USBH_CDC
+//        if (LINE <= 60) {
+//            LINE = 190;
+//            lcd_rectangle_fill(60, 0, 210, 320, BLACK);
+//        }
+//    #elif defined USBD_CDC
+//        if (LINE <= 40) {
+//            LINE = 190;
+//            lcd_rectangle_fill(40, 0, 210, 320, BLACK);
+//        }
+//    #else
         if (LINE <= 30) {
             LINE = 190;
             lcd_rectangle_fill(30, 0, 210, 320, BLACK);
         }
-    #endif
-#endif
+//    #endif
+//#endif
 
     for (i = 0; i < len; i ++) {
         lcd_char_display(LINE, (10 + 8 * i), *pstr++, chara_format);
